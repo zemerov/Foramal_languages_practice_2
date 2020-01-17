@@ -3,11 +3,11 @@ import State
 
 if __name__ == '__main__':
     # Simple test
-    grammar = {
-        "S": [["(", "S", ")", "S"], []],
+    grammar = {  # Correct bracket sequence
+        "S": [["(", "S", ")", "S"], []],  # [] Defines EPS word
     }
 
-    terminals = ["(", ")", ""]  # ['Det', 'Noun', 'Verb', 'Aux', 'Prep', 'Proper-Noun']
+    terminals = ["(", ")", ""]  # You have to define terminals
     word = ["(", "(", ")", ")", "(", ")"]
 
     earley = Parser(grammar, terminals)
@@ -17,5 +17,3 @@ if __name__ == '__main__':
     print("'%s' in GRAMMAR: " % ''.join(word), earley.word_in_grammar(word))
 
     print(earley)
-
-    print(State.State('S', ['T', 'a'], 0, 0))
